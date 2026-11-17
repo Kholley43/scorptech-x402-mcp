@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "scorptech-x402": {
+      "type": "http",
+      "url": "https://scorptech.it.com/api/x402/mcp/lite"
+    }
+  }
+}

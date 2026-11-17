@@ -2,13 +2,50 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.it.scorptech/x402",
   "title": "ScorpTech x402 API",
-  "description": "1,012 x402 pay-per-call tools: web data, security/OSINT, SEC/public data, Solana/EVM lookups",
-  "version": "1.0.1",
+  "description": "1,012 x402 pay-per-call tools, USDC on Solana or Base: web, security/OSINT, SEC data, Solana/EVM",
+  "version": "1.0.2",
   "websiteUrl": "https://scorptech.it.com/api/x402/docs",
   "remotes": [
     {
       "type": "streamable-http",
       "url": "https://scorptech.it.com/api/x402/mcp"
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://scorptech.it.com/api/x402/mcp/lite"
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://scorptech.it.com/api/x402/mcp/security"
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://scorptech.it.com/api/x402/mcp/web"
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://scorptech.it.com/api/x402/mcp/sec"
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://scorptech.it.com/api/x402/mcp/crypto"
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://scorptech.it.com/api/x402/mcp/dev"
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Kholley43/scorptech-x402-mcp",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://scorptech.it.com/api/x402/icon.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "400x400"
+      ]
     }
   ]
 }
