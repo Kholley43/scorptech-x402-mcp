@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.it.scorptech/x402",
+  "title": "ScorpTech x402 API",
+  "description": "1,012 x402 pay-per-call tools: web data, security/OSINT, SEC/public data, Solana/EVM lookups",
+  "version": "1.0.1",
+  "websiteUrl": "https://scorptech.it.com/api/x402/docs",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://scorptech.it.com/api/x402/mcp"
+    }
+  ]
+}
