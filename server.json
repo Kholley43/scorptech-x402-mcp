@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.it.scorptech/x402",
   "title": "ScorpTech x402 API",
-  "description": "1,012 x402 pay-per-call tools, USDC on Solana or Base: web, security/OSINT, SEC data, Solana/EVM",
-  "version": "1.0.2",
+  "description": "1,014 x402 pay-per-call tools, USDC on Solana or Base: web, security/OSINT, SEC data, Solana/EVM",
+  "version": "1.0.3",
   "websiteUrl": "https://scorptech.it.com/api/x402/docs",
   "remotes": [
     {
@@ -33,6 +33,10 @@
     {
       "type": "streamable-http",
       "url": "https://scorptech.it.com/api/x402/mcp/dev"
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://scorptech.it.com/api/x402/mcp/audit"
     }
   ],
   "repository": {

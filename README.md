@@ -2,8 +2,8 @@
 
 # ScorpTech x402 MCP Server
 
-**1,012 x402 pay-per-call tools: web data, security/OSINT, SEC/public data, Solana/EVM lookups, developer utilities.**
-Pay per call in USDC on **Solana or Base** via the [x402](https://x402.org) protocol. Most tools cost **$0.001**; none cost more than $0.03.
+**1,014 x402 pay-per-call tools: web data, security/OSINT, SEC/public data, Solana/EVM lookups, developer utilities.**
+Pay per call in USDC on **Solana or Base** via the [x402](https://x402.org) protocol. Most tools cost **$0.001**; none cost more than $0.05.
 No signup, no API key, no subscription.
 
 This repository is the public listing for the hosted ScorpTech x402 MCP server. It runs as a remote
@@ -15,13 +15,14 @@ All servers use Streamable HTTP (POST) and are stateless. `tools/list` is always
 
 | Server | URL | Tools |
 |---|---|---|
-| **Lite** (recommended for Claude, Cursor, etc.) | `https://scorptech.it.com/api/x402/mcp/lite` | 2: `search_tools` (free) + `call_tool` (reaches all 1,012) |
-| Security, OSINT, DNS and email | `https://scorptech.it.com/api/x402/mcp/security` | 68 |
+| **Lite** (recommended for Claude, Cursor, etc.) | `https://scorptech.it.com/api/x402/mcp/lite` | 2: `search_tools` (free) + `call_tool` (reaches all 1,014) |
+| Security, OSINT, DNS and email | `https://scorptech.it.com/api/x402/mcp/security` | 69 |
 | Web data, scraping, SEO and text | `https://scorptech.it.com/api/x402/mcp/web` | 31 |
 | SEC filings, finance and public data | `https://scorptech.it.com/api/x402/mcp/sec` | 52 |
-| Crypto and on-chain (Solana/EVM) | `https://scorptech.it.com/api/x402/mcp/crypto` | 43 |
+| Crypto and on-chain (Solana/EVM) | `https://scorptech.it.com/api/x402/mcp/crypto` | 44 |
 | Developer utilities (JSON, CSV, regex, time) | `https://scorptech.it.com/api/x402/mcp/dev` | 50 |
-| Everything | `https://scorptech.it.com/api/x402/mcp` | 1,012 (about 1 MB list; supports `tools/list` cursor paging) |
+| Audits: website security + Solana token safety | `https://scorptech.it.com/api/x402/mcp/audit` | 2: `site_security_audit`, `solana_token_safety` |
+| Everything | `https://scorptech.it.com/api/x402/mcp` | 1,014 (about 1 MB list; supports `tools/list` cursor paging) |
 
 | | |
 |---|---|
@@ -30,6 +31,16 @@ All servers use Streamable HTTP (POST) and are stateless. `tools/list` is always
 | OpenAPI | https://scorptech.it.com/api/x402/openapi.json |
 | Health | https://scorptech.it.com/api/x402/health |
 | Official MCP Registry | [`com.it.scorptech/x402`](https://registry.modelcontextprotocol.io/v0/servers?search=com.it.scorptech/x402) |
+
+## Featured reports
+
+| Tool | What you get | Price |
+|---|---|---|
+| `site_security_audit` | Full website security check for a domain: TLS certificate, HTTP-to-HTTPS redirect, security headers, cookie flags, exposed files (`.git`, `.env`, config backups, phpinfo, server-status, directory listing), version leaks, DNS (A/AAAA/MX/NS/CAA, DNSSEC), SPF/DMARC/DKIM and CMS detection. Returns a 0-100 score, an A-F grade, a plain-English summary and a fix for every finding. Non-intrusive (light GET requests only, about 20 s max). | $0.05 |
+| `solana_token_safety` | Check a Solana token before you buy: mint and freeze authority, Token-2022 traps (transfer fee, permanent delegate, transfer hook, non-transferable, pausable), top-10 holder concentration with pools excluded, liquidity and LP lock, a live Jupiter sell quote (basic honeypot test), token age and RugCheck risks. Returns a 0-100 risk score, flags and a verdict. | $0.02 |
+
+Both are on `/mcp/audit`, and also in `/mcp/security`, `/mcp/crypto` and `/mcp`. Over plain HTTPS they're
+`GET /api/x402/v1/site-security-audit?domain=example.com` and `GET /api/x402/v1/solana-token-safety?mint=<mint>`.
 
 ## Add it to your MCP client
 
@@ -56,8 +67,8 @@ For stdio-only clients, use a bridge such as [`mcp-remote`](https://www.npmjs.co
 
 | Network | CAIP-2 | Asset | Pay to |
 |---|---|---|---|
-| Solana (listed first) | `solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp` | USDC `EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v` | `Gzn6fbrn11cd61iH4mgQvtmf4PHmeMCRn8msU4hjpty8` |
-| Base | `eip155:8453` | USDC `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913` | `0xBC72c556166A3d3317c673DDB21Fb088C10088A0` |
+| Solana | `solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp` | USDC `EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v` | `Gzn6fbrn11cd61iH4mgQvtmf4PHmeMCRn8msU4hjpty8` |
+| Base (listed first) | `eip155:8453` | USDC `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913` | `0xBC72c556166A3d3317c673DDB21Fb088C10088A0` |
 
 Facilitator: [PayAI](https://facilitator.payai.network). For MCP, the payment goes in `params._meta["x402/payment"]` (x402 v2 MCP transport).
 
@@ -99,7 +110,8 @@ The 402 response carries the x402 v2 `PAYMENT-REQUIRED` header, and its JSON bod
 | $0.003 | 34 |
 | $0.004 to $0.008 | 61 |
 | $0.01 | 49 |
-| $0.02 to $0.03 | 8 |
+| $0.02 to $0.03 | 9 |
+| $0.05 | 1 |
 
 ## Links
 
