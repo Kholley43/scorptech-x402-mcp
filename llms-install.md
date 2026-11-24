@@ -31,6 +31,6 @@ This is a **hosted remote MCP server**. There's nothing to clone, build, or run 
 
 2. Check that it works by calling the free `search_tools` tool, for example with `{"query": "dns"}`. It should return a list of tools with prices.
 
-3. `call_tool` runs one of the 1,014 tools and is paid per call in USDC via x402 (Solana or Base). Without a payment, it returns an x402 `PaymentRequired` object (price, network, recipient). That's expected behavior, not an installation error. Paying requires an x402-capable client or wallet. See https://scorptech.it.com/api/x402/docs.
+3. `call_tool` runs one of the 1,020 tools and is paid per call in USDC via x402 (Solana or Base). Without a payment, it returns an x402 `PaymentRequired` object (price, network, recipient). That's expected behavior, not an installation error. Paying requires an x402-capable client or wallet. See https://scorptech.it.com/api/x402/docs.
 
-Optional smaller servers with direct tools: `/mcp/security`, `/mcp/web`, `/mcp/sec`, `/mcp/crypto`, `/mcp/dev` (same base URL `https://scorptech.it.com/api/x402`).
+Optional smaller servers with direct tools: `/mcp/security`, `/mcp/web`, `/mcp/sec`, `/mcp/crypto`, `/mcp/dev`, `/mcp/audit`, `/mcp/featured` (same base URL `https://scorptech.it.com/api/x402`).
